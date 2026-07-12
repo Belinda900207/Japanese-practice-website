@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>50 音單字卡練習</title>
+
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <main class="kana-app">
+        <header class="page-header">
+            <p class="eyebrow">Japanese Kana Practice</p>
+            <h1>50 音單字卡</h1>
+            <p class="description">
+                切換平假名、片假名或配對模式，並遮住其中一邊進行回想練習。
+            </p>
+        </header>
+
+        <!-- 練習模式 -->
+        <section class="control-section" aria-labelledby="modeTitle">
+            <h2 id="modeTitle">練習模式</h2>
+
+            <div class="button-group" role="group" aria-label="選擇練習模式">
+                <button
+                    class="mode-button active"
+                    type="button"
+                    data-mode="hiragana"
+                >
+                    平假名
+                </button>
+
+                <button
+                    class="mode-button"
+                    type="button"
+                    data-mode="katakana"
+                >
+                    片假名
+                </button>
+
+                <button
+                    class="mode-button"
+                    type="button"
+                    data-mode="both"
+                >
+                    平假名＆片假名
+                </button>
+            </div>
+        </section>
+
+        <!-- 顯示設定 -->
+        <section class="control-section" aria-labelledby="displayTitle">
+            <h2 id="displayTitle">遮擋設定</h2>
+
+            <div class="toggle-group">
+                <label class="toggle-option">
+                    <input
+                        id="hiraganaToggle"
+                        type="checkbox"
+                        checked
+                    >
+                    <span>顯示平假名</span>
+                </label>
+
+                <label class="toggle-option">
+                    <input
+                        id="katakanaToggle"
+                        type="checkbox"
+                        checked
+                    >
+                    <span>顯示片假名</span>
+                </label>
+
+                <label class="toggle-option">
+                    <input
+                        id="romajiToggle"
+                        type="checkbox"
+                        checked
+                    >
+                    <span>顯示羅馬拼音</span>
+                </label>
+            </div>
+        </section>
+
+        <!-- 進度 -->
+        <section class="practice-status" aria-live="polite">
+            <span id="modeLabel">平假名模式</span>
+            <span id="progressText">1 / 46</span>
+        </section>
+
+        <!-- 單字卡 -->
+        <section class="card-area">
+            <article
+                id="kanaCard"
+                class="kana-card"
+                tabindex="0"
+                aria-label="50 音練習卡片"
+            >
+                <div
+                    id="hiraganaPanel"
+                    class="kana-panel"
+                    data-field="hiragana"
+                >
+                    <span class="kana-label">平假名</span>
+                    <span id="hiraganaText" class="kana-character">あ</span>
+                    <span class="hidden-message">點擊顯示</span>
+                </div>
+
+                <div
+                    id="katakanaPanel"
+                    class="kana-panel"
+                    data-field="katakana"
+                >
+                    <span class="kana-label">片假名</span>
+                    <span id="katakanaText" class="kana-character">ア</span>
+                    <span class="hidden-message">點擊顯示</span>
+                </div>
+
+                <div
+                    id="romajiPanel"
+                    class="romaji-panel"
+                    data-field="romaji"
+                >
+                    <span class="kana-label">羅馬拼音</span>
+                    <span id="romajiText" class="romaji-text">a</span>
+                    <span class="hidden-message">點擊顯示</span>
+                </div>
+            </article>
+
+            <p class="card-hint">
+                點擊被遮住的區塊，可以暫時翻開答案。
+            </p>
+        </section>
+
+        <!-- 操作按鈕 -->
+        <section class="navigation">
+            <button id="previousButton" class="secondary-button" type="button">
+                ← 上一張
+            </button>
+
+            <button id="revealButton" class="primary-button" type="button">
+                顯示全部答案
+            </button>
+
+            <button id="nextButton" class="secondary-button" type="button">
+                下一張 →
+            </button>
+        </section>
+
+        <section class="extra-actions">
+            <button id="shuffleButton" class="text-button" type="button">
+                ⇄ 隨機排列
+            </button>
+
+            <button id="resetButton" class="text-button" type="button">
+                ↺ 恢復順序
+            </button>
+        </section>
+    </main>
+
+    <script src="./script.js"></script>
+</body>
+</html>
